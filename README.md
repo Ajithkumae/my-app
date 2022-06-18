@@ -68,3 +68,47 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### `create redux steps'
+
+step 1 
+
+create reducer controll file ex:- index.js
+
+-- import { combineReducers } from 'redux';
+
+export default combineReducers({here list of reducers});
+
+--------------end--------------
+
+Step 2 
+
+create store and import the reducer and bind with the create store ex :- store.js
+
+import { applyMiddleware, createStore } from 'redux';
+import reducer from './Reducer/index';
+import thunk from 'redux-thunk';
+
+export const store = createStore(reducer,applyMiddleware(thunk));
+
+
+Step 3
+
+create actions ex:-
+
+export const setLogin = token => {
+  return async dispatch => {
+    await storage.setItem('userName', token).then(res => {
+      dispatch({
+        type: actionTypes.LOGIN,
+        token: token,
+      });
+    });
+  };
+};
+
+
+
+
+
+

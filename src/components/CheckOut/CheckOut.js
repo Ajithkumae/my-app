@@ -2,8 +2,13 @@ import "./Checkout.css";
 import React, { useState } from "react";
 import NewExpense from "../NewExpense/NewExpense";
 import Expenses from "../Expenses/Expenses";
+import { useDispatch, useSelector } from "react-redux";
 
 const CheckOut = (props) => {
+  // const dispatch = useDispatch();
+  const { expenseData } = useSelector((state) => state.expenseReducer);
+
+  console.log("Data check ", expenseData);
   const dumi_data = [
     {
       id: "e1",
